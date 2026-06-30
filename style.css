@@ -1047,6 +1047,38 @@ footer .flinks a:hover {
         flex: 0 0 78%;
         scroll-snap-align: center;
         border: 1px solid var(--line);
+        /* Compact vertical padding — desktop 50px 38px is too generous on mobile */
+        padding: 28px 22px;
+    }
+
+    /* Tighten vertical rhythm inside each card */
+    .plan .cadence {
+        margin-bottom: 14px;
+    }
+
+    .plan .price-note {
+        margin-bottom: 18px;
+    }
+
+    .plan ul {
+        margin-bottom: 20px;
+    }
+
+    .plan li {
+        padding: 8px 0;
+        font-size: 13.5px;
+    }
+
+    .plan-top {
+        margin-bottom: 18px;
+    }
+
+    .plan h3 {
+        font-size: 24px;
+    }
+
+    .plan .price {
+        font-size: 38px;
     }
 
     .testi-grid {
@@ -1069,9 +1101,8 @@ footer .flinks a:hover {
         height: 100svh;
         min-height: 100svh;
         align-items: stretch;
-        padding-top: 0;
-        /* 60px bottom lift: pushes the entire content block up,
-           giving visual separation between service tags and scroll cue */
+        /* 80px: clears the fixed navbar — content can never start behind it */
+        padding-top: 80px;
         padding-bottom: 60px;
         flex-direction: column;
         justify-content: flex-end;
@@ -1086,15 +1117,20 @@ footer .flinks a:hover {
         flex: 0 0 auto;
         flex-wrap: wrap;
         margin-top: 18px;
-        /* scroll cue: 70px height + 28px bottom-offset + 10px gap = 108px needed */
         padding-bottom: 108px;
     }
 
+    /* Use left:0/right:0 + flex centering instead of left:50%/transform.
+       The left:50% approach is thrown off by the hero's horizontal padding. */
     .scroll-cue {
         position: absolute;
         bottom: 28px;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transform: none;
     }
 
     section {
